@@ -48,11 +48,13 @@ extern char readChar(void)
     c = v;
     return c;
 }
+
 extern void printChar(char c)
 {
     while((UART0->FR & (1<<5)) != 0 );
     UART0->DR = c;
 }
+
 extern void printString(char* string)
 {
     while(*string)
